@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>داشبورد</h2>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card p-3 text-center">
+      <h5>تعداد ذوب‌ها</h5>
+      <h2>{{ total_melts }}</h2>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card p-3 text-center">
+      <h5>وزن کل (kg)</h5>
+      <h2>{{ total_weight }}</h2>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card p-3 text-center">
+      <h5>درصد اسکرپ</h5>
+      <h2>{{ scrap_percent }}%</h2>
+    </div>
+  </div>
+</div>
+{% endblock %}

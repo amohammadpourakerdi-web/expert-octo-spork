@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>لیست ذوب‌ها</h2>
+<form method="post" action="/melts/add" class="row g-3 mb-4">
+  <div class="col-md-2"><input class="form-control" name="melt_number" placeholder="شماره ذوب" required></div>
+  <div class="col-md-2"><input class="form-control" type="datetime-local" name="date" required></div>
+  <div class="col-md-1"><input class="form-control" name="shift" placeholder="شیفت" required></div>
+  <div class="col-md-2"><input class="form-control" type="number" step="0.01" name="weight_kg" placeholder="وزن" required></div>
+  <div class="col-md-2"><input class="form-control" type="number" step="0.01" name="scrap_kg" placeholder="اسکرپ" required></div>
+  <div class="col-md-2"><input class="form-control" name="alloy" placeholder="آلیاژ"></div>
+  <div class="col-md-12"><textarea class="form-control" name="notes" placeholder="یادداشت"></textarea></div>
+  <div class="col-md-12"><button class="btn btn-primary">ثبت</button></div>
+</form>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>شماره</th><th>تاریخ</th><th>شیفت</th><th>وزن</th><th>اسکرپ</th><th>آلیاژ</th><th>یادداشت</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for m in melts %}
+    <tr>
+      <td>{{ m.melt_number }}</td>
+      <td>{{ m.date }}</td>
+      <td>{{ m.shift }}</td>
+      <td>{{ m.weight_kg }}</td>
+      <td>{{ m.scrap_kg }}</td>
+      <td>{{ m.alloy }}</td>
+      <td>{{ m.notes }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
